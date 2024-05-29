@@ -1,7 +1,9 @@
 // SPDX-FileCopyrightText: 2024 SmartRent
 //
 // SPDX-License-Identifier: Apache-2.0
-function handler({ request: { headers, querystring }) {
+function handler(event) {
+    const headers = event.request.headers;
+    const querystring = event.request.querystring;
     const now = (new Date()).toISOString();
     let nonce = "";
 
