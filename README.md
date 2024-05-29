@@ -5,7 +5,7 @@ Internet connectivity check server,
 [whenwhere.nerves-project.org](https://whenwhere.nerves-project.org). The server
 provides a highly available endpoint that is inexpensive to maintain. Of course,
 this is an open source project and no uptime guarantees are being made. Luckily,
-the source is available here to set one up yourself.
+the source is available here so that you can set one up yourself.
 
 Why does this project exist? We were defeated by captive portals tricking
 devices that they had Internet when they didn't.
@@ -32,9 +32,9 @@ when they don't need any information in the body of the response.
 One query parameter is supported:
 
 * `nonce` - an up to 32 alphanumeric string. Non-alphanumeric or longer strings
-  result an an error response.
+  result in an error response.
 
-Both HTTP GET AND HEAD methods return the following headers:
+Both HTTP GET and HEAD methods return the following headers:
 
 * `x-nonce` - The value of the `nonce` query parameter
 * `x-now` - Optional ISO 8601 date/time string with millisecond precision in UTC (e.g., `2024-05-29T00:22:09.890Z`)
@@ -86,7 +86,7 @@ x-amz-cf-id: WjQvSIZ_Rr3mUnlGgWvTZJXXsKE1QinAEABsa0YOtTmgrpuPmU2LXA==
 
 ## CloudFront Function setup
 
-Consult that AWS CloudFront Function setup and use the provided `index.js`.
+Consult the AWS CloudFront Function setup and use the provided `index.js`.
 
 For geo-location support, attach the `AllViewerAndCloudFrontHeaders-2022-06`
 origin request policy.
