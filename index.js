@@ -2,11 +2,10 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 function handler(event) {
-    var request = event.request;
-    var headers = request.headers;
-    var querystring = request.querystring;
-    var now = (new Date()).toISOString();
-    var nonce = "";
+    const headers = event.request.headers;
+    const querystring = event.request.querystring;
+    const now = (new Date()).toISOString();
+    let nonce = "";
 
     if (querystring && querystring.nonce) {
         nonce = querystring.nonce.value;
