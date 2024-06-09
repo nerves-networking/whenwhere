@@ -36,8 +36,8 @@ One query parameter is supported:
 
 Both HTTP GET and HEAD methods return the following headers:
 
-* `x-nonce` - The value of the `nonce` query parameter
-* `x-now` - Optional ISO 8601 date/time string with millisecond precision in UTC (e.g., `2024-05-29T00:22:09.890Z`)
+* `x-now` - ISO 8601 date/time string with millisecond precision in UTC (e.g., `2024-05-29T00:22:09.890Z`)
+* `x-nonce` - The value of the `nonce` query parameter if specified
 
 HTTP GET methods return the following JSON-encoded map:
 

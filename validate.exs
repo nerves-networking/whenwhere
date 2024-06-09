@@ -16,7 +16,7 @@ defmodule ValidationTests do
 
     assert result.status == 200
     assert result.headers["cache-control"] == ["no-cache, must-revalidate, max-age=0"]
-    assert result.headers["x-nonce"] == [""]
+    assert result.headers["x-nonce"] == nil
 
     [now] = result.headers["x-now"]
     assert {:ok, _, _} = DateTime.from_iso8601(now)
@@ -42,7 +42,7 @@ defmodule ValidationTests do
     assert result.status == 200
     assert result.headers["cache-control"] == ["no-cache, must-revalidate, max-age=0"]
     assert result.headers["content-type"] == ["application/json"]
-    assert result.headers["x-nonce"] == [""]
+    assert result.headers["x-nonce"] == nil
 
     [now] = result.headers["x-now"]
     assert {:ok, _, _} = DateTime.from_iso8601(now)
