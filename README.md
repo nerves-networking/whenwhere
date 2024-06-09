@@ -58,6 +58,7 @@ HTTP GET methods return the following JSON-encoded map:
 * `"latitude"` - Optional approximate latitude
 * `"longitude"` - Optional approximate longitude
 * `"country"` - Optional ISO 3166-1 alpha-2 country code
+* `"country_region"` - Optional ISO 3166-1 alpha-2 country code
 * `"city"` - Optional name of the nearest city
 * `"address"` - Optional IP address and port that made the request
 

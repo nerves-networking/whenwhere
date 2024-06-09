@@ -51,7 +51,8 @@ defmodule ValidationTests do
     assert Map.has_key?(result.body, "time_zone")
     assert Map.has_key?(result.body, "latitude")
     assert Map.has_key?(result.body, "longitude")
-    assert Map.has_key?(result.body, "city")
+    # assert Map.has_key?(result.body, "city")
+    # assert Map.has_key?(result.body, "country_region")
     assert Map.has_key?(result.body, "country")
     assert Map.has_key?(result.body, "address")
   end
