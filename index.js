@@ -1,11 +1,18 @@
 // SPDX-FileCopyrightText: 2024 SmartRent
 //
 // SPDX-License-Identifier: Apache-2.0
+function maybeAdd(field, contents, key) {
+    if (field) {
+        contents[key] = field.value;
+    }
+}
+
 function handler(event) {
-    const headers = event.request.headers;
-    const querystring = event.request.querystring;
-    const now = (new Date()).toISOString();
-    let nonce = "";
+    var request = event.request;
+    var headers = request.headers;
+    var querystring = request.querystring;
+    var now = (new Date()).toISOString();
+    var nonce = null;
 
     if (querystring && querystring.nonce) {
         nonce = querystring.nonce.value;
@@ -22,24 +29,29 @@ function handler(event) {
         }
     }
 
-    return {
-        statusCode: 200,
-        statusDescription: 'OK',
-        headers: {
+    var contents = {now: now};
+    maybeAdd(headers['cloudfront-viewer-time-zone'], contents, 'time_zone')
+    maybeAdd(headers['cloudfront-viewer-latitude'], contents, 'latitude')
+    maybeAdd(headers['cloudfront-viewer-longitude'], contents, 'longitude')
+    maybeAdd(headers['cloudfront-viewer-country'], contents, 'country')
+    maybeAdd(headers['cloudfront-viewer-country-region'], contents, 'country_region')
+    maybeAdd(headers['cloudfront-viewer-city'], contents, 'city')
+    maybeAdd(headers['cloudfront-viewer-address'], contents, 'address')
+
+    var resp_headers = {
             'content-type': { value: 'application/json' },
             'cache-control': { value: 'no-cache, must-revalidate, max-age=0' },
             'expires': { value: '0' },
-            'x-now': { value: now },
-            'x-nonce' : { value: nonce },
-        },
-        body: JSON.stringify({
-            now: now,
-            time_zone: headers['cloudfront-viewer-time-zone'].value,
-            latitude: headers['cloudfront-viewer-latitude'].value,
-            longitude: headers['cloudfront-viewer-longitude'].value,
-            country: headers['cloudfront-viewer-country'].value,
-            city: headers['cloudfront-viewer-city'].value,
-            address: headers['cloudfront-viewer-address'].value,
-        })
+            'x-now': { value: now }
+        }
+    if (nonce) {
+        resp_headers['x-nonce'] = { value: nonce }
+    }
+
+    return {
+        statusCode: 200,
+        statusDescription: 'OK',
+        headers: resp_headers,
+        body: JSON.stringify(contents)
     };
 }
