@@ -1,6 +1,9 @@
 // SPDX-FileCopyrightText: 2024 SmartRent
 //
 // SPDX-License-Identifier: Apache-2.0
+//
+// https://github.com/nerves-networking/whenwhere
+// v0.1.0
 function maybeAdd(field, contents, key) {
     if (field) {
         contents[key] = field.value;
