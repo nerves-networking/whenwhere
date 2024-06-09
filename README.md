@@ -18,9 +18,9 @@ repository pointer if you'd like to share another way.
 Features include:
 
 * Multiple ways to avoid being tricked by overly aggressive HTTP caches
+* Millisecond timestamp for setting clocks
 * Optional device geo-location
-* Optional millisecond timestamp for setting clocks
-* HTTP and HTTPS support
+* Optional public IP address and port used to make the request
 
 ## API
 
@@ -53,13 +53,13 @@ HTTP GET methods return the following JSON-encoded map:
 }
 ```
 
-* `"now"` - Optional ISO 8601 data/time string. If supplied it matches `x-now` in the HTTP header
+* `"now"` - ISO 8601 data/time string with millisecond precision in UTC
 * `"time_zone"` - Optional geo-located time zone in IANA time zone database format
 * `"latitude"` - Optional approximate latitude
 * `"longitude"` - Optional approximate longitude
 * `"country"` - Optional ISO 3166-1 alpha-2 country code
 * `"city"` - Optional name of the nearest city
-* `"address"` - IP address and port that made the request
+* `"address"` - Optional IP address and port that made the request
 
 ## Example usage
 
