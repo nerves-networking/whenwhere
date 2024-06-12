@@ -72,4 +72,26 @@ defmodule ValidationTests do
     assert delta > 0
     assert delta < 1000
   end
+
+  test "get request using Erlang terms" do
+    result = Req.get!(@server, headers: %{content_type: "application/x-erlang-binary"})
+
+    assert result.status == 200
+    assert result.headers["cache-control"] == ["no-cache, must-revalidate, max-age=0"]
+    assert result.headers["content-type"] == ["application/x-erlang-binary"]
+    assert result.headers["x-nonce"] == nil
+
+    [now] = result.headers["x-now"]
+    assert {:ok, _, _} = DateTime.from_iso8601(now)
+
+    body = result.body |> :erlang.binary_to_term([:safe])
+
+    assert is_map(body)
+    assert body["now"] == now
+    assert Map.has_key?(body, "time_zone")
+    assert Map.has_key?(body, "latitude")
+    assert Map.has_key?(body, "longitude")
+    assert Map.has_key?(body, "country")
+    assert Map.has_key?(body, "address")
+  end
 end
