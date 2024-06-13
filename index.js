@@ -6,7 +6,7 @@
 // v0.2.0
 function maybeAdd(field, contents, key) {
     if (field) {
-        contents[key] = field.value;
+        contents[key] = decodeURIComponent(field.value);
     }
 }
 
