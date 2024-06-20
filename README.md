@@ -28,7 +28,17 @@ Features include:
 If you're not using Elixir, run this:
 
 ```sh
-curl -i https://whenwhere.nerves-project.org
+$ curl https://whenwhere.nerves-project.org | jq .
+{
+  "now": "2024-06-20T02:19:59.878Z",
+  "time_zone": "Australia/Brisbane",
+  "latitude": "-27.46790",
+  "longitude": "153.03250",
+  "country": "AU",
+  "country_region": "QLD",
+  "city": "Brisbane",
+  "address": "103.216.220.102:11591"
+}
 ```
 
 In Elixir, here's an example using [`Req`](https://hexdocs.pm/req/readme.html):
