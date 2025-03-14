@@ -1,5 +1,7 @@
 # WhenWhere Server
 
+[![REUSE status](https://api.reuse.software/badge/github.com/nerves-networking/whenwhere)](https://api.reuse.software/info/github.com/nerves-networking/whenwhere)
+
 The repository provides an API and implementation for the Nerves Project's
 Internet connectivity check server,
 [whenwhere.nerves-project.org](https://whenwhere.nerves-project.org). The server

@@ -1,4 +1,8 @@
 #!/usr/bin/env elixir
+# SPDX-FileCopyrightText: 2024 SmartRent
+#
+# SPDX-License-Identifier: Apache-2.0
+#
 
 Mix.install([
   {:req, "~> 0.5.0"}
