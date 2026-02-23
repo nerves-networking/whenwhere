@@ -97,7 +97,7 @@ Both HTTP GET and HEAD methods return the following headers:
 * `x-now` - ISO 8601 date/time string with millisecond precision in UTC (e.g., `2024-05-29T00:22:09.890Z`)
 * `x-nonce` - The value of the `nonce` query parameter if specified
 
-The `content-type` request header selects JSON-encoded (`applictaion/json`) or
+The `content-type` request header selects JSON-encoded (`application/json`) or
 Erlang Term Format-encoded (`application/x-erlang-binary`) results. JSON is the
 default. The contents will be a map with the following fields. Note that many
 are optional.
