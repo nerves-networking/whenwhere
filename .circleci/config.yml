@@ -1,0 +1,20 @@
+# SPDX-FileCopyrightText: None
+# SPDX-License-Identifier: CC0-1.0
+
+version: 2.1
+
+jobs:
+  check-license:
+    docker:
+      - image: fsfe/reuse:latest
+    steps:
+      - checkout
+      - run: reuse lint
+
+workflows:
+  checks:
+    jobs:
+      - check-license:
+          filters:
+            tags:
+              only: /.*/

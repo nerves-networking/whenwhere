@@ -4,6 +4,7 @@
 -->
 # WhenWhere Server
 
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/nerves-networking/whenwhere/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/nerves-networking/whenwhere/tree/main)[![CircleCI](https://dl.circleci.com/status-badge/img/gh/nerves-networking/whenwhere/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/nerves-networking/whenwhere/tree/main)
 [![REUSE status](https://api.reuse.software/badge/github.com/nerves-networking/whenwhere)](https://api.reuse.software/info/github.com/nerves-networking/whenwhere)
 
 The repository provides an API and implementation for the Nerves Project's
