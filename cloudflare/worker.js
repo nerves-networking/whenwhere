@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 //
 // https://github.com/nerves-networking/whenwhere
-// v0.2.0
+// v0.3.0
 
 function maybeAdd(value, contents, key) {
     if (value) {

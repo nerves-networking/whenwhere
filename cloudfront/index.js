@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: Apache-2.0
 //
 // https://github.com/nerves-networking/whenwhere
-// v0.2.0
+// v0.3.0
 function maybeAdd(field, contents, key) {
     if (field) {
         contents[key] = decodeURIComponent(field.value);
