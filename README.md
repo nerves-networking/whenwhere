@@ -1,3 +1,7 @@
+<!--
+  SPDX-FileCopyrightText: 2025 Smartrent
+  SPDX-License-Identifier: CC-BY-4.0
+-->
 # WhenWhere Server
 
 [![REUSE status](https://api.reuse.software/badge/github.com/nerves-networking/whenwhere)](https://api.reuse.software/info/github.com/nerves-networking/whenwhere)
