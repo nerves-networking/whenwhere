@@ -94,8 +94,8 @@ when they don't need any information in the body of the response.
 
 One query parameter is supported:
 
-* `nonce` - an up to 32 alphanumeric string. Non-alphanumeric or longer strings
-  result in an error response.
+* `nonce` - an up to 31 character alphanumeric string. Non-alphanumeric or
+  longer strings result in an error response.
 
 Both HTTP GET and HEAD methods return the following headers:
 
