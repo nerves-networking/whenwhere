@@ -161,7 +161,8 @@ This project comes with simple tests to verify that the server is responding
 correctly. Make sure Elixir is installed and then run:
 
 ```sh
-./validate.exs
+./validate.exs [url]
 ```
 
-Modify the script if your installation differs.
+The default URL is `http://whenwhere.nerves-project.org`. Pass a URL to test a
+different server, e.g., `./validate.exs http://localhost:8787`.
