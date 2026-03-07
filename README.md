@@ -16,9 +16,10 @@ the source is available here so that you can set one up yourself.
 Why does this project exist? We were defeated by captive portals tricking
 devices that they had Internet when they didn't.
 
-The reference implementation uses [AWS CloudFront
-Functions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-functions.html).
-It's certainly possible to replicate the API elsewhere. Please send a PR or
+Implementations are provided for [AWS CloudFront
+Functions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-functions.html)
+and [Cloudflare Workers](https://developers.cloudflare.com/workers/). It's
+certainly possible to replicate the API elsewhere. Please send a PR or
 repository pointer if you'd like to share another way.
 
 Features include:
@@ -113,14 +114,45 @@ are optional.
 * `"country"` - Optional ISO 3166-1 alpha-2 country code
 * `"country_region"` - Optional ISO 3166-1 alpha-2 country code
 * `"city"` - Optional name of the nearest city
-* `"address"` - Optional IP address and port that made the request
+* `"address"` - Optional IP address and optional port that made the request
 
 ## CloudFront Function setup
 
-Consult the AWS CloudFront Function setup and use the provided `index.js`.
+Consult the AWS CloudFront Function setup and use the provided
+`cloudfront/index.js`.
 
 For geo-location support, attach the `AllViewerAndCloudFrontHeaders-2022-06`
 origin request policy.
+
+## Cloudflare Worker setup
+
+The Cloudflare Worker implementation is in `cloudflare/worker.js` with
+configuration in `cloudflare/wrangler.toml`.
+
+1. Install [Wrangler](https://developers.cloudflare.com/workers/wrangler/install-and-update/):
+
+   ```sh
+   npm install -g wrangler
+   ```
+
+2. Authenticate with your Cloudflare account:
+
+   ```sh
+   wrangler login
+   ```
+
+3. Edit `cloudflare/wrangler.toml` to set the worker name and optionally
+   configure a custom domain or route.
+
+4. Deploy:
+
+   ```sh
+   cd cloudflare
+   wrangler deploy
+   ```
+
+**Note:** Unlike the CloudFront implementation, the Cloudflare Worker `address`
+field contains only the client IP address without a port number.
 
 ## Tests
 

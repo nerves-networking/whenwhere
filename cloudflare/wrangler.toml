@@ -1,0 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Frank Hunleth
+# SPDX-License-Identifier: Apache-2.0
+
+name = "whenwhere"
+main = "worker.js"
+compatibility_date = "2024-01-01"
