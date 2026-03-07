@@ -13,7 +13,8 @@ ExUnit.start()
 defmodule ValidationTests do
   use ExUnit.Case, async: true
 
-  @server "http://whenwhere.nerves-project.org/"
+  # @server "http://whenwhere.nerves-project.org/"
+  @server "http://whenwhere.fhunleth.workers.dev"
 
   test "head request w/o nonce" do
     result = Req.head!(@server)
